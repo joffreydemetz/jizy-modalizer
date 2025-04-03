@@ -15,7 +15,7 @@ import {
     // , 
 	// extendDOMTraversal, extendDOMEvents, 
     // extendDOMAnimations, extendDOMSwipe 
-} from 'jizy-dom';
+} from '@jizy/jizy-dom';
 
 extendDOMAttributes(DOM);
 extendDOMManipulation(DOM);

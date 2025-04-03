@@ -1,0 +1,30 @@
+{
+  "name": "jizy-modalizer",
+  "version": "1.0.0",
+  "description": "Manag Modal layers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joffreydemetz/jizy-modalizer.git"
+  },
+  "keywords": [
+    "DOM",
+    "Jizy",
+    "Modal"
+  ],
+  "author": "Joffrey Demetz <joffrey.demetz@gmail.com> (https://joffreydemetz.com/jizy-modalizer/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joffreydemetz/jizy-modalizer/issues"
+  },
+  "homepage": "https://github.com/joffreydemetz/jizy-modalizer#readme",
+  "dependencies": {
+    "jizy-dom": "^1.0"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}

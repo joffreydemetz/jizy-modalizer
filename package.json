@@ -1,18 +1,20 @@
 {
   "name": "jizy-modalizer",
   "version": "1.0.2",
-  "description": "Manag Modal layers",
+  "description": "Manage Modal layers",
   "type": "module",
   "main": "index.js",
+  "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel . --out-dir dist --ignore node_modules,dist",
+    "test": "echo 'Add tests here if needed'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joffreydemetz/jizy-modalizer.git"
   },
   "keywords": [
-    "DOM",
+    "dom",
     "Jizy",
     "Modal"
   ],
@@ -22,10 +24,15 @@
     "url": "https://github.com/joffreydemetz/jizy-modalizer/issues"
   },
   "homepage": "https://github.com/joffreydemetz/jizy-modalizer#readme",
+  "directories": {
+    "lib": "lib"
+  },
   "dependencies": {
     "jizy-dom": "^1.0"
   },
-  "directories": {
-    "lib": "lib"
+  "devDependencies": {
+    "@babel/cli": "^7.27.0",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9"
   }
 }

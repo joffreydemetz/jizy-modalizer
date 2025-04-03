@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Manag Modal layers",
   "type": "module",
   "main": "index.js",

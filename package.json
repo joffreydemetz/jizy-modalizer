@@ -2,11 +2,11 @@
   "name": "jizy-modalizer",
   "version": "1.0.3",
   "description": "Manage Modal layers",
-  "type": "module",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "babel . --out-dir dist --ignore node_modules,dist",
+    "build": "tsup & webpack",
     "test": "echo 'Add tests here if needed'"
   },
   "repository": {
@@ -24,15 +24,23 @@
     "url": "https://github.com/joffreydemetz/jizy-modalizer/issues"
   },
   "homepage": "https://github.com/joffreydemetz/jizy-modalizer#readme",
-  "directories": {
-    "lib": "lib"
-  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> .2%"
+  ],
   "dependencies": {
+    "typescript": "^5.8.2",
     "jizy-dom": "^1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.27.0",
     "@babel/core": "^7.26.10",
-    "@babel/preset-env": "^7.26.9"
+    "@babel/preset-env": "^7.26.9",
+    "autoprefixer": "^10.4.21",
+    "browserlist": "^1.0.1",
+    "ts-loader": "^9.5.2",
+    "tsup": "^8.4.0",
+    "webpack-cli": "^6.0.1"
   }
 }

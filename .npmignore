@@ -1,3 +1,12 @@
-node_modules/
-tests/
-*.md
+/src
+/node_modules
+/vendor
+/tests 
+
+.vscode
+.env
+composer.json
+composer.lock
+package-lock.json
+tsconfig.json
+tsup.config.ts

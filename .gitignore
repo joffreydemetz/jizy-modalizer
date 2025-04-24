@@ -1,4 +1,12 @@
+/dist
+/node_modules
+/vendor
+/tests 
+
+.vscode
+.env
+composer.json
 composer.lock
 package-lock.json
-/node_modules/
-/vendor/
+tsconfig.json
+tsup.config.ts

@@ -1,5 +1,5 @@
-import { Modal } from './Modal.js';
-import { Layer } from './Layer.js';
+import { Modal } from '../Modal.js';
+import { Layer } from '../Layer.js';
 
 const Modalizer = new Modal();
 

@@ -1,4 +1,4 @@
-import { jDOMcreate } from '../index.js';
+import { DOM } from 'jizy-dom';
 
 let currentLayer = 0;
 
@@ -40,23 +40,78 @@ class Layer {
 		this.onHide = null;
 	}
 
-	setCloseText(str) { this.closeText = str; return this; }
-	withCloseIcon(closeIcon) { this.closeIcon = closeIcon; return this; }
-	setFooterCloseButton() { return this.setFooter('<button type="button" class="btn btn-primary modalizer-close">' + this.closeText + '</button>'); }
-	setHeader(header) { this.header = header; return this; }
-	setContent(content) { this.content = content; return this; }
-	setData(key, value) { this.data[key] = value; return this; }
-	setAriaTitle(title) { this.aria.title = title; return this; }
-	setAriaDescription(description) { this.aria.description = description; return this; }
-	setFooter(footer) { this.footer = footer; return this; }
-	setSize(size) { this.size = size; return this; }
-	setTheme(theme) { this.theme = theme; return this; }
-	withMiddle() { this.middle = true; return this; }
-	setOnBeforeShow(onBeforeShow) { this.onBeforeShow = onBeforeShow; return this; }
-	setOnShow(onShow) { this.onShow = onShow; return this; }
-	setOnUpdate(onUpdate) { this.onUpdate = onUpdate; return this; }
-	setOnShowTimeout(onShowTimeout) { this.onShowTimeout = onShowTimeout; return this; }
-	setOnHide(onHide) { this.onHide = onHide; return this; }
+	setCloseText(str) { 
+		this.closeText = str; 
+		return this; 
+	}
+	withCloseIcon(closeIcon) { 
+		this.closeIcon = closeIcon; return this; 
+	}
+	setFooterCloseButton() { 
+		return this.setFooter('<button type="button" class="btn btn-primary modalizer-close">' + this.closeText + '</button>'); 
+	}
+	setHeader(header) { 
+		this.header = header; return this; 
+	}
+	setContent(content) { 
+		this.content = content; return this;
+	 }
+	setData(key, value) { this.data[key] = value; return this; 
+
+	}
+	setAriaTitle(title) { this.aria.title = title; return this; 
+
+	}
+	setAriaDescription(description) { 
+		this.aria.description = description; 
+		return this; 
+
+	}
+	setFooter(footer) { 
+		this.footer = footer; 
+		return this; 
+
+	}
+	setSize(size) { 
+		this.size = size; 
+		return this;
+
+	 }
+	setTheme(theme) { 
+		this.theme = theme; 
+		return this; 
+
+	}
+	withMiddle() { 
+		this.middle = true; 
+		return this; 
+
+	}
+	setOnBeforeShow(onBeforeShow) { 
+		this.onBeforeShow = onBeforeShow; 
+		return this;
+
+	 }
+	setOnShow(onShow) { 
+		this.onShow = onShow; 
+		return this; 
+
+	}
+	setOnUpdate(onUpdate) { 
+		this.onUpdate = onUpdate; 
+		return this; 
+
+	}
+	setOnShowTimeout(onShowTimeout) { 
+		this.onShowTimeout = onShowTimeout; 
+		return this;
+
+	 }
+	setOnHide(onHide) { 
+		this.onHide = onHide; 
+		return this; 
+
+	}
 
 	getElement() {
 		if (!this.$element) {
@@ -69,7 +124,7 @@ class Layer {
 			if (this.aria.title) { newElementAttrs['aria-title'] = this.aria.title; }
 			if (this.aria.description) { newElementAttrs['aria-description'] = this.aria.description; }
 
-			this.$element = jDOMcreate('div', newElementAttrs);
+			this.$element = DOM.create('div', newElementAttrs);
 
 			let html = '';
 			if (this.closeIcon) {

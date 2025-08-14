@@ -1,0 +1,29 @@
+@import url("less/variables.less");
+@import url("less/animations.less");
+@import url("less/structure.less");
+
+@media (max-width: @mobile-breakpoint) {
+    @import url("less/mobile.less");
+}
+
+@media (min-width: @desktop-breakpoint) {
+    @import url("less/screen.less");
+}
+
+@media print {
+    body:not(.modalizer-open) {
+
+        .modalizer,
+        .modalizerBackdrop {
+            display: none !important;
+        }
+    }
+
+    body.modalizer-open {
+
+        >*:not(.modalizer),
+        >*:not(.modalizerBackdrop) {
+            display: none !important;
+        }
+    }
+}

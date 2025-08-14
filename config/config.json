@@ -1,0 +1,6 @@
+{
+    "buildTarget": "dist",
+    "buildZip": false,
+    "buildName": "default",
+    "desktopBreakpoint": "900px"
+}

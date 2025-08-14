@@ -1,0 +1,37 @@
+@keyframes showModelizerLayer {
+  0% {
+	transform: scale(.8) translateY(-800px);
+    opacity:0;
+	// display: none;
+  }
+  100% {
+	transform: scale(1) translateY(0px);
+    opacity:1;
+	display: block;
+  }
+}
+
+@keyframes showAgainModelizerLayer {
+  0% {
+	transform: scale(.8) translateY(-800px);
+    opacity:0;
+  }
+  100% {
+	transform: scale(1) translateY(0px);
+    opacity:1;
+	display: block;
+  }
+}
+
+@keyframes hideModelizerLayer {
+	0% {
+		transform: scale(1);
+	}
+	99.9% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(0);
+		display: none !important;
+	}
+}

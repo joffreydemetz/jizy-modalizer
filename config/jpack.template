@@ -1,0 +1,6 @@
+import Modalizer from '{{PREFIX}}lib/js/modalizer.js';
+
+import './config.less';
+import '{{PREFIX}}lib/modalizer.less';
+
+export default Modalizer;

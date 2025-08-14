@@ -1,0 +1,163 @@
+body.modalizer-open {
+	overflow: hidden;
+}
+
+.modalizer-backdrop {
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: @modalizer-layer;
+	background: rgba(0, 0, 0, .6);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .3s ease-in-out;
+
+	body.modalizer-open & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.modalizer {
+	overflow: hidden;
+	position: fixed;
+	width: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: @modalizer-layer + 1;
+	outline: 0;
+	visibility: hidden;
+	opacity: 0;
+	transform: scale(0.8);
+	transition: width .8s;
+
+	&.in {
+		visibility: visible;
+		opacity: 1;
+		width: auto;
+		transition: opacity .5s ease-in-out;
+		transform: scale(1);
+
+		body.modalizer-open & {
+			overflow-y: auto;
+		}
+	}
+
+	.closer {
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		right: 17px;
+		top: 6px;
+		z-index: @modalizer-layer + 10;
+		color: @modalizer-closer-color;
+		font-size: 40px;
+		background: #FFF;
+		border-radius: 50%;
+
+		&:hover,
+		&:focus {
+			span {
+				opacity: .8;
+			}
+		}
+	}
+
+	.layer {
+		position: relative;
+		width: 0;
+		max-width: @modalizer-width-max;
+		margin-left: auto;
+		margin-right: auto;
+		background: #FFF;
+		border: 1px solid #EEE;
+		color: #222;
+		opacity: 0;
+		transition: all .7s;
+		-webkit-overflow-scrolling: touch;
+
+		&.in {
+			animation: showModelizerLayer .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+		}
+
+		&.back-in {
+			animation: showAgainModelizerLayer .7s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+		}
+
+		&.out {
+			animation: hideModelizerLayer .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+			display: none;
+		}
+	}
+
+	header {
+		padding: 14px 20px;
+		border-bottom: 1px solid #EEE;
+		user-select: none;
+
+		p {
+			display: block;
+			margin: 0;
+			color: #888;
+			font-weight: 700;
+			font-size: 1.3em;
+			line-height: 1.5em;
+		}
+	}
+
+	section {
+		position: relative;
+		padding: 20px;
+
+		>h1:first-child {
+			margin-top: 0;
+		}
+	}
+
+	footer {
+		padding: 14px 20px;
+		border-top: 1px solid #EEE;
+		text-align: right;
+		user-select: none;
+
+		.btn+.btn {
+			margin-left: 10px;
+		}
+	}
+
+	.layer-sm {
+		.closer {
+			width: 30px;
+			height: 30px;
+			top: 7px;
+			right: 10px;
+		}
+
+		section {
+			padding: 16px 20px !important;
+		}
+	}
+}
+
+// move to JIZY
+
+body.modalizer-open>.tooltip {
+	z-index: @modalizer-layer + 900;
+}
+
+body.modalizer-open .app-messages {
+	z-index: @modalizer-layer + 899;
+}
+
+body.modalizer-open .redactor-dropdown {
+	z-index: @modalizer-layer + 899;
+}

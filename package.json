@@ -4,6 +4,14 @@
   "browser": "dist/js/jizy-modalizer.min.js",
   "main": "lib/index.js",
   "type": "module",
+  "files": [
+    "dist/js/jizy-modalizer.min.js",
+    "dist/css/jizy-modalizer.min.css",
+    "lib/js/*.js",
+    "lib/less/*.less",
+    "lib/index.js",
+    "lib/modalizer.less"
+  ],
   "scripts": {
     "test": "jest",
     "dist": "node cli/dist.js",

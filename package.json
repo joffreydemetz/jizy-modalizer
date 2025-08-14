@@ -1,7 +1,7 @@
 {
-  "name": "modalizer",
+  "name": "jizy-modalizer",
   "version": "2.0.0",
-  "browser": "dist/js/modalizer.min.js",
+  "browser": "dist/js/jizy-modalizer.min.js",
   "main": "lib/index.js",
   "type": "module",
   "scripts": {

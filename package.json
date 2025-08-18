@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "browser": "dist/js/jizy-modalizer.min.js",
   "jizy": {
     "css": [

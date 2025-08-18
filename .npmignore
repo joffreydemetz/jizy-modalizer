@@ -1,13 +1,7 @@
 cli/
-config/
-jpack/
-lib/
 node_modules/
-test/
+src/
 vendor/
-.babelrc
-.browserslistrc
-.gitignore
 composer.json
 composer.lock
 package-lock.json

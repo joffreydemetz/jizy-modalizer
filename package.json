@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "browser": "dist/js/jizy-modalizer.min.js",
   "jizy": {
     "css": [
@@ -18,10 +18,10 @@
     "lib/modalizer.less"
   ],
   "scripts": {
-    "test": "jest",
-    "dist": "node cli/dist.js",
-    "build": "node cli/command.js",
-    "build-dev": "cross-env DEBUG=true node cli/command.js"
+    "jpack:export": "node ./cli/jpack.js -t perso",
+    "jpack:export-debug": "node ./cli/jpack.js -t perso --debug",
+    "jpack:dist": "node ./cli/jpack.js -t dist -n default",
+    "jpack:dist-debug": "node ./cli/jpack.js -t dist -n default --debug"
   },
   "repository": {
     "type": "git",
@@ -38,35 +38,7 @@
   "author": "Joffrey Demetz <joffrey.demetz@gmail.com> (https://joffreydemetz.com/)",
   "license": "MIT",
   "description": "Modal layer manager for web applications. It provides a simple API to manage modal dialogs, including opening, closing, and customizing modals.",
-  "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/preset-env": "^7.26.9",
-    "@rollup/plugin-commonjs": "^28.0.3",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.1",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-url": "^8.0.2",
-    "autoprefixer": "^10.4.21",
-    "babel-jest": "^29.7.0",
-    "clean-css": "^5.3.3",
-    "cross-env": "^7.0.3",
-    "cssnano": "^7.0.6",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
-    "jsdom": "^26.1.0",
-    "less": "^4.3.0",
-    "less-plugin-clean-css": "^1.6.0",
-    "postcss": "^8.5.3",
-    "rollup": "^4.40.1",
-    "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-delete": "^3.0.1",
-    "rollup-plugin-postcss": "^4.0.2",
-    "yargs": "^17.7.2"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
+  "dependencies": {
+    "jizy-packer": "^2.0.0"
   }
 }

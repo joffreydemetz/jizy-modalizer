@@ -1,4 +1,4 @@
-/*! Modalizer v@VERSION | @DATE | [@BUNDLE] */
+/*! Modalizer v@VERSION | MIT | @DATE | [@BUNDLE] */
 (function (global) {
     "use strict";
 

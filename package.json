@@ -1,27 +1,19 @@
 {
   "name": "jizy-modalizer",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "browser": "dist/js/jizy-modalizer.min.js",
-  "jizy": {
-    "css": [
-      "dist/css/jizy-modalizer.min.css"
-    ]
-  },
   "main": "lib/index.js",
   "type": "module",
+  "jizy": "dist/",
   "files": [
-    "dist/js/jizy-modalizer.min.js",
-    "dist/css/jizy-modalizer.min.css",
-    "lib/js/*.js",
-    "lib/less/*.less",
-    "lib/index.js",
-    "lib/modalizer.less"
+    "dist/*",
+    "lib/*"
   ],
   "scripts": {
-    "jpack:export": "node ./cli/jpack.js -t perso",
-    "jpack:export-debug": "node ./cli/jpack.js -t perso --debug",
-    "jpack:dist": "node ./cli/jpack.js -t dist -n default",
-    "jpack:dist-debug": "node ./cli/jpack.js -t dist -n default --debug"
+    "jpack:export": "node ./cli/jpack.js --action build --name perso",
+    "jpack:export-debug": "node ./cli/jpack.js --action build --name perso --debug",
+    "jpack:dist": "node ./cli/jpack.js",
+    "jpack:dist-debug": "node ./cli/jpack.js --debug"
   },
   "repository": {
     "type": "git",
@@ -39,6 +31,6 @@
   "license": "MIT",
   "description": "Modal layer manager for web applications. It provides a simple API to manage modal dialogs, including opening, closing, and customizing modals.",
   "dependencies": {
-    "jizy-packer": "^2.0.0"
+    "jizy-packer": "^2.1.0"
   }
 }

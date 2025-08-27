@@ -1,55 +1,44 @@
 import fs from 'fs';
 import path from 'path';
-import { LogMe, jPackConfig, removeEmptyDirs } from 'jizy-packer';
+import { LogMe, jPackConfig } from 'jizy-packer';
 
-async function generateConfigLess() {
-    LogMe.log('Generate config.less');
+function generateLessVariablesFromConfig(variablesPath) {
+    LogMe.log('Build lib/less/_variables.less');
     const desktopBreakpoint = jPackConfig.get('desktopBreakpoint') ?? '768px';
-    let lessContent = `@desktop-breakpoint: ${desktopBreakpoint};` + "\n";
-    lessContent += `@mobile-breakpoint: @desktop-breakpoint - 1px;`;
-    fs.writeFileSync(path.join(jPackConfig.get('assetsPath'), 'config.less'), lessContent);
+    let content = `@desktop-breakpoint: ${desktopBreakpoint};` + "\n";
+    content += `@mobile-breakpoint: @desktop-breakpoint - 1px;`;
+    fs.writeFileSync(variablesPath, content, { encoding: 'utf8' });
 }
 
-function moveSingleJsFileToDistRoot() {
-    //LogMe.log('Clean dist folder content')
-    const target = jPackConfig.get('assetsPath');
-    //removeEmptyDirs(target);
-
-    // move the .min.js file in dist/js/ to dist/
-    LogMe.log('Move minified JS file to dist root');
-    const minJsFile = path.join(target, 'js', `${jPackConfig.get('alias')}.min.js`);
-    if (fs.existsSync(minJsFile)) {
-        fs.renameSync(minJsFile, path.join(target, `${jPackConfig.get('alias')}.min.js`));
+function deleteLessVariablesFile(variablesPath) {
+    if (fs.existsSync(variablesPath)) {
+        LogMe.log('Delete lib/less/_variables.less');
+        fs.unlinkSync(variablesPath);
     }
 }
 
-const jPackData = {
-    name: 'Modalizer',
-    alias: 'jizy-modalizer',
-    cfg: 'modalizer',
-    assetsPath: 'dist',
+const jPackData = function () {
+    const lessBuildVariablesPath = path.join(jPackConfig.get('basePath'), 'lib', 'less', '_variables.less');
 
-    buildTarget: null,
-    buildZip: false,
-    buildName: 'default',
+    jPackConfig.sets({
+        name: 'Modalizer',
+        alias: 'jizy-modalizer',
+        desktopBreakpoint: '900px'
+    });
 
-    desktopBreakpoint: '900px',
 
-    onCheckConfig: () => {
-    },
+    jPackConfig.set('onCheckConfig', () => { });
 
-    onGenerateBuildJs: (code) => {
-        generateConfigLess();
+    jPackConfig.set('onGenerateBuildJs', (code) => {
+        generateLessVariablesFromConfig(lessBuildVariablesPath);
         return code;
-    },
+    });
 
-    onGenerateWrappedJs: (wrapped) => {
-        return wrapped;
-    },
+    jPackConfig.set('onGenerateWrappedJs', (wrapped) => wrapped);
 
-    onPacked: () => {
-        // moveSingleJsFileToDistRoot();
-    }
+    jPackConfig.set('onPacked', () => {
+        deleteLessVariablesFile(lessBuildVariablesPath);
+    });
 };
 
 export default jPackData;

@@ -1,4 +1,4 @@
-import Modalizer from '{{PREFIX}}lib/js/modalizer.js';
+import Modalizer from '{{PREFIX}}lib/js/Modalizer.js';
 
 import '{{PREFIX}}lib/modalizer.less';
 

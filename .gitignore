@@ -1,6 +1,6 @@
 build/*
 node_modules/
-composer.lock
+example/
 package-lock.json
 test/
-vendor/
+.work/

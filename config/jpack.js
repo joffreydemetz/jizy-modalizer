@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 
 import {
@@ -15,11 +16,11 @@ const jPackData = function () {
         alias: 'jizy-modalizer',
         lessVariables: {
             desktopBreakpoint: '900px',
+            scrollbarWidth: '17px',
             modalizerCloserColor: '#888',
             modalizerLayer: 10000,
             modalizerWidth: '700px',
-            modalizerWidthMax: '1200px',
-            modalizerScrollbarWidth: '17px'
+            modalizerWidthMax: '1200px'
         },
         defaults: {
         }

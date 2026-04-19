@@ -12,6 +12,6 @@
 
     // @CODE 
 
-    global.Modalizer = Modalizer;
+    global.Modalizer = new Modalizer();
 
 })(typeof window !== "undefined" ? window : this);

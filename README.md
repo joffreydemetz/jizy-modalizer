@@ -8,10 +8,6 @@ Modal layer manager for web applications. It provides a simple API to manage mod
 npm install jizy-modalizer
 ```
 
-## Usage 
-
-See example files in `example/` for practical usage.
-
 ## Features
 
 - Multiple modal layers
@@ -26,5 +22,4 @@ It is easy to interact with the Modalizer manager programmatically. Here are som
 - `Modalizer.hide()`: hide the current modal layer and return to the previous one or close the modalizer if no more layers
 - `Modalizer.addLayer(layer)`: add a new modal layer (optionally replacing the current one)
 - `Modalizer.replaceLayer(layer)`: same as `addLayer` but always replaces the current layer
-
 - `Modalizer.LayerDomData(element)`: Retrieve layer config from a DOM element

@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "browser": "dist/js/jizy-modalizer.min.js",
   "main": "lib/index.js",
   "type": "module",
@@ -13,7 +13,20 @@
     "jpack:export": "node ./cli/jpack.js --action build --name perso",
     "jpack:export-debug": "node ./cli/jpack.js --action build --name perso --debug",
     "jpack:dist": "node ./cli/jpack.js",
-    "jpack:dist-debug": "node ./cli/jpack.js --debug"
+    "jpack:dist-debug": "node ./cli/jpack.js --debug",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ],
+    "transform": {}
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "less": "^4.6.4"
   },
   "repository": {
     "type": "git",

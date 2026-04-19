@@ -3,8 +3,6 @@ body.modalizer-open {
 }
 
 .modalizer-backdrop {
-	align-items: center;
-	justify-content: center;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
@@ -14,7 +12,7 @@ body.modalizer-open {
 	bottom: 0;
 	left: 0;
 	z-index: @modalizer-layer;
-	background: rgba(0, 0, 0, .6);
+	background: rgba(0, 0, 0, .4);
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity .3s ease-in-out;
@@ -22,6 +20,36 @@ body.modalizer-open {
 	body.modalizer-open & {
 		opacity: 1;
 		visibility: visible;
+	}
+}
+
+a.modalizer-close {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: @modalizer-layer + 10;
+	background: rgba(255, 255, 255, .7);
+	border-radius: 50%;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity .4s ease-in-out;
+
+	>span:first-child {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 40px;
+		font-weight: 700;
+		color: @modalizer-closer-color;
+		line-height: 1;
+		user-select: none;
+	}
+
+	&:hover,
+	&:focus {
+		opacity: .8;
 	}
 }
 
@@ -38,13 +66,13 @@ body.modalizer-open {
 	visibility: hidden;
 	opacity: 0;
 	transform: scale(0.8);
-	transition: width .8s;
+	transition: width .8s, height .6s;
 
 	&.in {
 		visibility: visible;
 		opacity: 1;
 		width: auto;
-		transition: opacity .5s ease-in-out;
+		transition: width .8s, height .6s, opacity .5s ease-in-out;
 		transform: scale(1);
 
 		body.modalizer-open & {
@@ -52,45 +80,42 @@ body.modalizer-open {
 		}
 	}
 
-	.closer {
-		width: 40px;
-		height: 40px;
-		position: absolute;
-		right: 17px;
-		top: 6px;
-		z-index: @modalizer-layer + 10;
-		color: @modalizer-closer-color;
-		font-size: 40px;
-		background: #FFF;
-		border-radius: 50%;
-
-		&:hover,
-		&:focus {
-			span {
-				opacity: .8;
-			}
-		}
-	}
-
 	.layer {
 		position: relative;
 		width: 0;
-		max-width: @modalizer-width-max;
+		max-width: 100vw;
+		max-height: 100vh;
+		overflow-y: auto;
 		margin-left: auto;
 		margin-right: auto;
 		background: #FFF;
 		border: 1px solid #EEE;
+		border-radius: 4px;
 		color: #222;
 		opacity: 0;
 		transition: all .7s;
 		-webkit-overflow-scrolling: touch;
 
-		&.in {
-			animation: showModelizerLayer .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+		&:not(.layer-fs) {
+			&.in {
+				animation: showModelizerLayer .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+			}
+
+			&.back-in {
+				animation: showAgainModelizerLayer .7s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+			}
 		}
 
-		&.back-in {
-			animation: showAgainModelizerLayer .7s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+		&.layer-fs {
+			overflow: hidden;
+
+			&.in {
+				animation: showModelizerFsLayer .6s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+			}
+
+			&.back-in {
+				animation: showAgainModelizerFsLayer .7s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+			}
 		}
 
 		&.out {
@@ -117,47 +142,56 @@ body.modalizer-open {
 	section {
 		position: relative;
 		padding: 20px;
-
-		>h1:first-child {
-			margin-top: 0;
-		}
 	}
 
 	footer {
 		padding: 14px 20px;
 		border-top: 1px solid #EEE;
-		text-align: right;
 		user-select: none;
-
-		.btn+.btn {
-			margin-left: 10px;
-		}
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		column-gap: 16px;
 	}
 
 	.layer-sm {
-		.closer {
-			width: 30px;
-			height: 30px;
-			top: 7px;
-			right: 10px;
-		}
-
 		section {
-			padding: 16px 20px !important;
+			padding-top: 10px;
+			padding-bottom: 10px;
 		}
 	}
 }
 
-// move to JIZY
+/**
+ * Picture viewer theme
+ * displays image in full viewport
+ */
+.layer-pic-viewer {
+	section {
+		padding: 0 !important;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-body.modalizer-open>.tooltip {
-	z-index: @modalizer-layer + 900;
-}
+		figure {
+			max-width: 100%;
+			max-height: 100%;
+			margin: 0;
 
-body.modalizer-open .app-messages {
-	z-index: @modalizer-layer + 899;
-}
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+				margin: 0 auto;
+				object-fit: contain;
+			}
 
-body.modalizer-open .redactor-dropdown {
-	z-index: @modalizer-layer + 899;
+			figcaption {
+				margin-top: 10px;
+				font-size: 1.2em;
+				font-style: normal;
+			}
+		}
+	}
 }

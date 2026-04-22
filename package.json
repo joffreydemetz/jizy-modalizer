@@ -43,6 +43,7 @@
   "author": "Joffrey Demetz <joffrey.demetz@gmail.com> (https://joffreydemetz.com/)",
   "license": "MIT",
   "description": "Modal layer manager for web applications. It provides a simple API to manage modal dialogs, including opening, closing, and customizing modals.",
+  "homepage": "https://jizy.joffreydemetz.com/modalizer",
   "dependencies": {
     "jizy-packer": "^2.1.0"
   }

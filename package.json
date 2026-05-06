@@ -11,9 +11,7 @@
   ],
   "scripts": {
     "jpack:export": "node ./cli/jpack.js --action build --name perso",
-    "jpack:export-debug": "node ./cli/jpack.js --action build --name perso --debug",
     "jpack:dist": "node ./cli/jpack.js",
-    "jpack:dist-debug": "node ./cli/jpack.js --debug",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "jest": {
@@ -25,7 +23,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jest-environment-jsdom": "^30.3.0",
     "less": "^4.6.4"
   },
   "repository": {
@@ -45,6 +43,6 @@
   "description": "Modal layer manager for web applications. It provides a simple API to manage modal dialogs, including opening, closing, and customizing modals.",
   "homepage": "https://jizy.joffreydemetz.com/modalizer",
   "dependencies": {
-    "jizy-packer": "^2.1.0"
+    "jizy-packer": "^2.1.44"
   }
 }

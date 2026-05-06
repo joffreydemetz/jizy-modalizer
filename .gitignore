@@ -1,6 +1,3 @@
 build/*
 node_modules/
-example/
 package-lock.json
-test/
-.work/

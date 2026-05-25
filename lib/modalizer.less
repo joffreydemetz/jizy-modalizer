@@ -1,13 +1,12 @@
-@import url("less/_variables.less");
-@import url("less/variables.less");
+@import url("less/theme.less");
 @import url("less/animations.less");
 @import url("less/structure.less");
 
-@media (max-width: @mobile-breakpoint) {
+@container (max-width: 767px) {
     @import url("less/mobile.less");
 }
 
-@media (min-width: @desktop-breakpoint) {
+@container (min-width: 768px) {
     @import url("less/screen.less");
 }
 

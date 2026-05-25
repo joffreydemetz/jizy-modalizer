@@ -1,14 +1,11 @@
 .modalizer {
-	padding-left: @scrollbar-width;
-	padding-right: @scrollbar-width;
-
 	footer {
 		padding-top: 14px;
 		padding-bottom: 14px;
 	}
 
 	.layer {
-		max-width: @modalizer-width-max;
+		max-width: var(--jizy-modalizer-width-max);
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 2vh;
@@ -20,16 +17,16 @@
 
 			&.in,
 			&.back-in {
-				width: @modalizer-width;
+				width: var(--jizy-modalizer-width);
 			}
 		}
 
 		&.layer-sm {
-			max-width: calc(@modalizer-width / 2);
+			max-width: calc(var(--jizy-modalizer-width) / 2);
 
 			&.in,
 			&.back-in {
-				width: calc(@modalizer-width / 2);
+				width: calc(var(--jizy-modalizer-width) / 2);
 			}
 		}
 
@@ -57,11 +54,6 @@
 	}
 
 	&.middle {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
 		.layer {
 			max-height: 90vh;
 		}

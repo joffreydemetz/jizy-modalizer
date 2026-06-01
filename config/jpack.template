@@ -1,4 +1,5 @@
 import Modalizer from '{{PREFIX}}lib/js/Modalizer.js';
+import '{{PREFIX}}lib/js/plugins/confirm.js';
 
 import '{{PREFIX}}lib/modalizer.less';
 

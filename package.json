@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "3.0.8",
+  "version": "3.1.0",
   "browser": "dist/js/jizy-modalizer.min.js",
   "main": "lib/index.js",
   "type": "module",

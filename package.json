@@ -5,6 +5,18 @@
   "main": "lib/index.js",
   "type": "module",
   "jizy": "dist/",
+  "author": "Joffrey Demetz <joffrey.demetz@gmail.com> (https://joffreydemetz.com/)",
+  "license": "MIT",
+  "description": "Modal layer manager for web applications. It provides a simple API to manage modal dialogs, including opening, closing, and customizing modals.",
+  "homepage": "https://jizy.joffreydemetz.com/modalizer",
+  "keywords": [
+    "modal",
+    "dialog",
+    "layer",
+    "ui",
+    "frontend",
+    "user interface"
+  ],
   "files": [
     "dist/*",
     "lib/*"
@@ -21,28 +33,16 @@
     ],
     "transform": {}
   },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^30.3.0",
-    "less": "^4.6.4"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joffreydemetz/jizy-modalizer.git"
   },
-  "keywords": [
-    "modal",
-    "dialog",
-    "layer",
-    "ui",
-    "frontend",
-    "user interface"
-  ],
-  "author": "Joffrey Demetz <joffrey.demetz@gmail.com> (https://joffreydemetz.com/)",
-  "license": "MIT",
-  "description": "Modal layer manager for web applications. It provides a simple API to manage modal dialogs, including opening, closing, and customizing modals.",
-  "homepage": "https://jizy.joffreydemetz.com/modalizer",
   "dependencies": {
     "jizy-packer": "^2.1.44"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "less": "^4.6.4"
   }
 }

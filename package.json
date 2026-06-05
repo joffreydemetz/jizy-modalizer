@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "3.2.1",
+  "version": "4.0.0",
   "browser": "dist/js/jizy-modalizer.min.js",
   "main": "lib/index.js",
   "type": "module",
@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "jpack:export": "node ./cli/jpack.js --action build --name perso",
-    "jpack:dist": "node ./cli/jpack.js",
+    "jpack:dist": "node ./cli/jpack.js && node ./cli/build-plugins.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "jest": {

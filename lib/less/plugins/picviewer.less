@@ -1,0 +1,124 @@
+/**
+ * Picture viewer — full-viewport image layer with an optional prev/next slider.
+ * Self-contained: arrows are pure CSS (no icon font). The .big-pic / figure /
+ * .prev / .next markup is produced by the jizy-dom `picviewer` proxy plugin.
+ */
+img[data-zoom] {
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		opacity: .8;
+	}
+}
+
+.layer-pic-viewer {
+	section {
+		padding: 0 !important;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	figure {
+		max-width: 100%;
+		max-height: 100%;
+		margin: 0;
+
+		figcaption {
+			margin-top: 10px;
+			font-size: 1.2em;
+			font-style: normal;
+		}
+	}
+
+	.big-pic {
+		position: relative;
+		display: flex;
+
+		img {
+			display: block;
+			max-width: 100%;
+			max-height: 100%;
+			height: auto;
+			margin: 0 auto;
+			object-fit: contain;
+			border-radius: 4px;
+		}
+
+		// prev / next navigation — self-contained CSS arrows (no icon font)
+		> .prev,
+		> .next {
+			position: absolute;
+			top: 0;
+			width: 55px;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			user-select: none;
+
+			&:before {
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				opacity: .8;
+				transition: opacity .2s ease-in-out;
+			}
+
+			&:hover:before,
+			&:focus:before {
+				opacity: 1;
+			}
+		}
+
+		> .prev {
+			left: -55px;
+
+			&:before {
+				border-width: 12px 17px 12px 0;
+				border-color: transparent #FFF transparent transparent;
+			}
+		}
+
+		> .next {
+			right: -55px;
+
+			&:before {
+				border-width: 12px 0 12px 17px;
+				border-color: transparent transparent transparent #FFF;
+			}
+		}
+	}
+}
+
+@container (max-width: 767px) {
+	.modalizer .layer.layer-pic-viewer {
+		max-width: 100vw !important;
+		max-height: 100vh;
+	}
+
+	.layer-pic-viewer .big-pic {
+		> .prev,
+		> .next {
+			display: none !important;
+		}
+
+		img {
+			max-width: 100vw;
+			max-height: 100vh;
+		}
+	}
+}
+
+@container (min-width: 768px) {
+	.modalizer .layer.layer-pic-viewer {
+		width: auto !important;
+		max-width: ~"calc(100vw - 76px)" !important;
+		max-height: ~"calc(100vh - 65px)";
+	}
+}

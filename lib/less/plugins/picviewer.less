@@ -14,11 +14,8 @@ img[data-zoom] {
 
 .layer-pic-viewer {
 	section {
+		// structure only — full-screen height + centering is mobile-only (below)
 		padding: 0 !important;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 	}
 
 	figure {
@@ -30,6 +27,19 @@ img[data-zoom] {
 			margin-top: 10px;
 			font-size: 1.2em;
 			font-style: normal;
+		}
+	}
+
+	.closer {
+		top: 10px;
+		right: 10px;
+		text-shadow: initial;
+		background: transparent;
+		opacity: .8;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
 		}
 	}
 
@@ -48,8 +58,8 @@ img[data-zoom] {
 		}
 
 		// prev / next navigation — self-contained CSS arrows (no icon font)
-		> .prev,
-		> .next {
+		>.prev,
+		>.next {
 			position: absolute;
 			top: 0;
 			width: 55px;
@@ -76,7 +86,7 @@ img[data-zoom] {
 			}
 		}
 
-		> .prev {
+		>.prev {
 			left: -55px;
 
 			&:before {
@@ -85,7 +95,7 @@ img[data-zoom] {
 			}
 		}
 
-		> .next {
+		>.next {
 			right: -55px;
 
 			&:before {
@@ -102,9 +112,18 @@ img[data-zoom] {
 		max-height: 100vh;
 	}
 
+	// full-screen layer on mobile → center the image in the viewport
+	.layer-pic-viewer section {
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
 	.layer-pic-viewer .big-pic {
-		> .prev,
-		> .next {
+
+		>.prev,
+		>.next {
 			display: none !important;
 		}
 
@@ -118,7 +137,21 @@ img[data-zoom] {
 @container (min-width: 768px) {
 	.modalizer .layer.layer-pic-viewer {
 		width: auto !important;
+	}
+
+	.layer-pic-viewer .closer {
+		top: -20px;
+		left: calc(50% - 20px);
+		right: 0px;
+		box-shadow: rgba(0, 0, 0, 0.28) 0px 0px 2px 1px;
+		background-color: rgb(255, 255, 255);
+		opacity: 1 !important;
+		border-radius: 50%;
+	}
+
+	.layer-pic-viewer .big-pic img {
 		max-width: ~"calc(100vw - 76px)" !important;
 		max-height: ~"calc(100vh - 65px)";
+		//max-height: 86vh;
 	}
 }

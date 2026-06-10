@@ -30,13 +30,14 @@ a.modalizer-close {
 	right: 10px;
 	top: 10px;
 	z-index: calc(var(--jizy-modalizer-layer) + 10);
-	background: rgba(255, 255, 255, .7);
-	border-radius: 50%;
+	background: var(--jizy-modalizer-closer-bgcolor);
 	text-decoration: none;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transition: opacity .4s ease-in-out;
+	border-radius: 50%;
+	opacity: 1;
 
 	>span:first-child {
 		font-family: 'Courier New', Courier, monospace;
@@ -49,7 +50,7 @@ a.modalizer-close {
 
 	&:hover,
 	&:focus {
-		opacity: .8;
+		opacity: .7;
 	}
 }
 

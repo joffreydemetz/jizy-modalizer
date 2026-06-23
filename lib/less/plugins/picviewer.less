@@ -115,25 +115,25 @@ img[data-zoom] {
 @container (min-width: 768px) {
 	.layer-pic-viewer {
 		width: auto !important;
-		// shed the generic md max-width (70vw) and the .middle max-height (90vh):
-		// the image's own calc() caps below must govern, or the layer scrolls
-		// instead of hugging the picture (double scrollbar on desktop).
-		max-width: none !important;
-		max-height: none !important;
+		max-width: initial !important;
+		max-height: initial !important;
+		overflow: hidden !important;
+		padding: 20px 40px 0 40px !important;
+		background: transparent !important;
+		border: 0 none !important;
+		border-radius: initial !important;
+		scrollbar-gutter: initial !important;
 
 		.modalizer-close {
-			top: -20px;
+			top: 0;
 			left: calc(50% - 20px);
 			right: 0px;
 			box-shadow: rgba(0, 0, 0, 0.28) 0px 0px 2px 1px;
-			// background-color: rgb(255, 255, 255);
-			// border-radius: 50%;
 		}
 
 		img {
 			max-width: ~"calc(100vw - 76px)" !important;
-			max-height: ~"calc(100vh - 65px)";
-			//max-height: 86vh;
+			max-height: ~"calc(100vh - 60px)";
 		}
 	}
 }

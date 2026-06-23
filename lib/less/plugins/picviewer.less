@@ -115,6 +115,11 @@ img[data-zoom] {
 @container (min-width: 768px) {
 	.layer-pic-viewer {
 		width: auto !important;
+		// shed the generic md max-width (70vw) and the .middle max-height (90vh):
+		// the image's own calc() caps below must govern, or the layer scrolls
+		// instead of hugging the picture (double scrollbar on desktop).
+		max-width: none !important;
+		max-height: none !important;
 
 		.modalizer-close {
 			top: -20px;

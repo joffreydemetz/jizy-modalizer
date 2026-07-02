@@ -24,7 +24,7 @@ const files = readdirSync(srcDir).filter((f) => f.endsWith('.less'));
 for (const file of files) {
     const name = file.replace(/\.less$/, '');
     const input = readFileSync(join(srcDir, file), 'utf8');
-    const result = await less.render(input, { filename: join(srcDir, file), compress: true });
+    const result = await less.render('/*! Modalizer Plugin: ' + name + ' */\n' + input, { filename: join(srcDir, file), compress: true });
     writeFileSync(join(outDir, `${name}.css`), result.css, 'utf8');
     console.log(`  plugin css → dist/css/plugins/${name}.css`);
 }

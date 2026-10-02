@@ -89,12 +89,20 @@ img[data-zoom] {
 
 @container (max-width: 767px) {
 	.layer-pic-viewer {
-		width: 100vw !important;
-		max-height: 100vh;
+		// exactly the visible screen: on phones 100vh is the toolbar-hidden height,
+		// taller than the screen while a toolbar shows — the centred overflow put
+		// the closer off-screen and scrolled on every swipe. 100vw would also count
+		// a reserved scrollbar gutter.
+		width: 100% !important;
+		height: 100vh;
+		height: 100dvh;
+		max-height: 100%;
+		overflow: hidden;
+		scrollbar-gutter: auto;
 
 		// full-screen layer on mobile → center the image in the viewport
 		section {
-			height: 100vh;
+			height: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -106,8 +114,9 @@ img[data-zoom] {
 		}
 
 		img {
-			max-width: 100vw;
+			max-width: 100%;
 			max-height: 100vh;
+			max-height: 100dvh;
 		}
 	}
 }
@@ -131,9 +140,13 @@ img[data-zoom] {
 			box-shadow: rgba(0, 0, 0, 0.28) 0px 0px 2px 1px;
 		}
 
+		// the modal's own width (cqw): 100vw also counts its scrollbar gutter;
+		// 80px = the layer's side padding
 		img {
-			max-width: ~"calc(100vw - 76px)" !important;
+			max-width: ~"calc(100vw - 80px)" !important;
+			max-width: ~"calc(100cqw - 80px)" !important;
 			max-height: ~"calc(100vh - 60px)";
+			max-height: ~"calc(100dvh - 60px)";
 		}
 	}
 }

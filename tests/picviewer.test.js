@@ -2,11 +2,6 @@
  * @jest-environment jsdom
  */
 import { jest } from '@jest/globals';
-import fs from 'node:fs';
-
-// The plugin is a raw global-using script that extends whatever `Modalizer`
-// instance exists when it runs — evaluate it against each fresh instance.
-const PLUGIN = fs.readFileSync(new URL('../lib/js/plugins/picviewer.js', import.meta.url), 'utf8');
 
 let Modalizer;
 
@@ -19,7 +14,9 @@ beforeEach(async () => {
     const Cls = (await import('../lib/js/Modalizer.js')).default;
     Modalizer = new Cls();
     window.Modalizer = Modalizer;
-    new Function(PLUGIN)();
+    // The ESM plugin installs itself on the global instance when it is evaluated
+    // (resetModules() above makes each import a fresh evaluation).
+    await import('../lib/js/plugins/picviewer.js');
 });
 
 afterEach(() => {

@@ -1,6 +1,6 @@
 {
   "name": "jizy-modalizer",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "browser": "dist/js/jizy-modalizer.min.js",
   "main": "lib/index.js",
   "type": "module",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^30.3.0",
-    "less": "^4.6.4"
+    "less": "^4.6.4",
+    "rollup": "^4.60.4"
   }
 }

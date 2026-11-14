@@ -84,8 +84,7 @@ describe('Escape on plain layers', () => {
     });
 
     test('the confirm dialog: Escape cancels without calling back', async () => {
-        const fs = await import('node:fs');
-        new Function(fs.readFileSync(new URL('../lib/js/plugins/confirm.js', import.meta.url), 'utf8'))();
+        await import('../lib/js/plugins/confirm.js');   // installs itself on window.Modalizer
         const callback = jest.fn();
 
         Modalizer.confirm(null, { content: 'Sure?', callback });
